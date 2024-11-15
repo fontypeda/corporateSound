@@ -1,0 +1,203 @@
+<div class="flex h-screen overflow-hidden">
+  <!-- Hamburger-Button für mobile Geräte -->
+  <button
+    class="md:hidden p-4 text-white fixed top-0 left-0 z-30"
+    (click)="isNavOpen = !isNavOpen"
+  >
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d="M4 6h16M4 12h16M4 18h16"
+      />
+    </svg>
+  </button>
+
+  <!-- Vertikale Navigation -->
+  <nav
+    [ngClass]="{ block: isNavOpen, hidden: !isNavOpen }"
+    class="w-[300px] bg-slate-800 text-slate-500 shadow-lg flex flex-col items-start py-4 px-2 space-y-2 fixed top-0 left-0 h-full overflow-y-auto md:block z-20"
+  >
+    <ng-container *ngFor="let slide of slides; let i = index">
+      <button
+        class="w-full text-left px-4 py-2 rounded hover:bg-slate-700 focus:outline-none transition-colors duration-200 flex justify-between items-center gap-4"
+        [ngClass]="{
+          'bg-slate-900': currentSlide === i,
+          'bg-slate-800': currentSlide !== i
+        }"
+        (click)="scrollToSlide(i)"
+      >
+        <div>
+          <h2 class="mb-2 text-slate-100">{{ slide.subtitle }}</h2>
+          <p class="text-slate-500 text-xs mt-0" *ngIf="slide.title">
+            {{ slide.title }}
+          </p>
+        </div>
+        <div
+          [style.background]="slide.color"
+          class="rounded-full h-2 w-2"
+        ></div>
+      </button>
+
+      <p-divider class="opacity-20" *ngIf="i !== slides.length - 1"></p-divider>
+    </ng-container>
+  </nav>
+
+  <!-- Hauptinhalt mit Scroll-Snap -->
+  <div
+    class="flex-1 ml-[300px] overflow-y-auto snap-y snap-mandatory h-full scroll-smooth"
+    (scroll)="onScroll($event)"
+    #scrollContainer
+  >
+    <!-- Fortschrittsleiste -->
+    <div class="sticky top-2 m-2 z-10">
+      <p-progressBar [value]="progress"></p-progressBar>
+    </div>
+
+    <!-- Slides -->
+    <div
+      *ngFor="let slide of slides; let i = index"
+      class="snap-start w-full h-screen scroll-area"
+    >
+      <div class="h-screen flex flex-col text-slate-700">
+        <!-- Obere Div - 1/3 der Höhe -->
+        <div
+          class="h-1/3 p-10 bg-white rounded-sm flex flex-col justify-center"
+        >
+          <h5
+            class="uppercase font-bold text-sm mb-4 animate-duration-1000"
+            enterClass="animate-fadein"
+            leaveClass="animate-fadeout"
+          >
+            {{ slide.title }} &#8212;
+          </h5>
+          <div class="flex gap-8">
+            <div class="w-2/3">
+              <h1
+                class="font-roboto leading-tight text-5xl font-semibold animate-duration-1000 ease-in-out"
+                pAnimateOnScroll
+                enterClass="animate-fadein"
+                leaveClass="animate-fadeout"
+              >
+                {{ slide.subtitle }}
+              </h1>
+            </div>
+            <div class="w-1/3">
+              <p
+                class="max-w-xs font-inter animate-duration-1000 ease-in-out"
+                pAnimateOnScroll
+                enterClass="animate-fadein"
+                leaveClass="animate-fadeout"
+              >
+                {{ slide.description }}
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Untere Div - 2/3 der Höhe -->
+        <!-- Dynamischer Gradient -->
+        <div class="h-2/3 p-10 rounded-md relative overflow-hidden">
+          <!-- Unscharfer Hintergrund -->
+          <!-- <div
+            class="absolute inset-0 -z-10 opacity-30"
+            [style.background]="
+              'linear-gradient(225deg, #E2E8F0 0%, ' +
+              slide.color +
+              ' 50%, #ffffff 100%)'
+            "
+            style="filter: blur(12px)"
+          ></div> -->
+          <div class="absolute inset-0 -z-10 opacity-40">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              version="1.1"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              xmlns:svgjs="http://svgjs.dev/svgjs"
+              viewBox="0 0 800 450"
+              width="100%"
+              height="100%"
+              preserveAspectRatio="none"
+            >
+              <defs>
+                <filter
+                  id="bbblurry-filter"
+                  x="-100%"
+                  y="-100%"
+                  width="400%"
+                  height="400%"
+                  filterUnits="objectBoundingBox"
+                  primitiveUnits="userSpaceOnUse"
+                  color-interpolation-filters="sRGB"
+                >
+                  <feTurbulence
+                    type="fractalNoise"
+                    baseFrequency="0.76"
+                    numOctaves="2"
+                    seed="2"
+                    stitchTiles="stitch"
+                    x="0%"
+                    y="0%"
+                    width="100%"
+                    height="100%"
+                    result="turbulence"
+                  ></feTurbulence>
+                  <feGaussianBlur
+                    stdDeviation="130"
+                    x="0%"
+                    y="0%"
+                    width="100%"
+                    height="100%"
+                    in="SourceGraphic"
+                    edgeMode="none"
+                    result="blur"
+                  ></feGaussianBlur>
+                </filter>
+              </defs>
+              <g filter="url(#bbblurry-filter)">
+                <ellipse
+                  rx="219"
+                  ry="150"
+                  cx="619.4912775213069"
+                  cy="130.44009676846588"
+                  fill="#9013feff"
+                ></ellipse>
+                <ellipse
+                  rx="219"
+                  ry="150"
+                  cx="164.04353748668325"
+                  cy="375.2163529829545"
+                  fill="#4fe3c3ff"
+                ></ellipse>
+                <ellipse
+                  rx="219"
+                  ry="150"
+                  cx="400.73063937100505"
+                  cy="283.86038762872874"
+                  fill="#4bb8e3ff"
+                ></ellipse>
+                <ellipse
+                  rx="219"
+                  ry="150"
+                  cx="649.5969071821733"
+                  cy="440.4663030450994"
+                  fill="hsla(55, 65%, 68%, 1.00)"
+                ></ellipse>
+              </g>
+            </svg>
+          </div>
+          <!-- Scharfer Inhalt -->
+          <ng-container *ngComponentOutlet="slide.component"></ng-container>
+        </div>
+      </div>
+    </div>
+
+    <!-- Zurück-Button -->
+    <button
+      class="fixed bottom-4 right-4 p-4 bg-slate-800 text-white rounded-full shadow-lg focus:outline-none"
+      routerLink="/script"
+      [disabled]="currentSlide === 0"
+    ></button>
+  </div>
+</div>

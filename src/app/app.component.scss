@@ -1,0 +1,49 @@
+/* Beispiel für verschiedene Hintergrundfarben je nach Slide */
+.scroll-area:nth-of-type(1) {
+}
+
+.scroll-area:nth-of-type(2) {
+}
+
+.scroll-area:nth-of-type(3) {
+}
+
+.scroll-area:nth-of-type(4) {
+}
+
+.scroll-area:nth-of-type(5) {
+}
+
+.scroll-area:nth-of-type(6) {
+}
+
+.scroll-area:nth-of-type(7) {
+}
+
+.scroll-area:nth-of-type(8) {
+}
+
+/* Anpassungen für die Navigationstexte */
+nav button {
+  @apply text-slate-300 text-sm md:text-base;
+}
+
+nav button:hover {
+  @apply bg-slate-700;
+}
+
+nav button.active {
+  @apply bg-primary-500 font-semibold;
+}
+
+/* Optional: Style für den Hamburger-Button */
+button.md\:hidden {
+  @apply block;
+}
+
+@media (min-width: 768px) {
+  /* Verstecke den Hamburger-Button auf größeren Bildschirmen */
+  button.md\:hidden {
+    @apply hidden;
+  }
+}

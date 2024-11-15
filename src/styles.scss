@@ -1,0 +1,61 @@
+/* You can add global styles to this file, and also import other style files */
+@import "primeicons/primeicons.css";
+
+/* src/styles.scss */
+
+/* src/styles.scss */
+
+/* Roboto Slab */
+@font-face {
+  font-family: "Roboto Slab";
+  src: url("/assets/fonts/Roboto_Slab/RobotoSlab-VariableFont_wght.ttf")
+    format("truetype");
+  font-weight: 100 900; /* Für variable Schriftgewichte */
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Inter */
+@font-face {
+  font-family: "Inter";
+  src: url("/assets/fonts/inter/Inter-VariableFont_opsz,wght.ttf")
+    format("truetype");
+  font-weight: 100 900; /* Für variable Schriftgewichte */
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Lora (falls benötigt) */
+@font-face {
+  font-family: "Lora";
+  src: url("/assets/fonts/lora/Lora-VariableFont_wght.ttf") format("truetype");
+  font-weight: 100 900; /* Für variable Schriftgewichte */
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Importiere Tailwind CSS */
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+/* You can add global styles to this file, and also import other style files */
+@layer tailwind-base, primeng, tailwind-utilities;
+
+@layer tailwind-base {
+  @tailwind base;
+}
+
+@layer tailwind-utilities {
+  @tailwind components;
+  @tailwind utilities;
+}
+
+html {
+  font-size: 14px;
+}
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

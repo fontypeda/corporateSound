@@ -1,0 +1,40 @@
+<div class="grid grid-cols-2 gap-4">
+  <!-- Audio-Beispiele -->
+  <ng-container *ngFor="let audio of audioExamples">
+    <div
+      class="relative bg-white p-2 justify-between align-middle flex rounded-md gap-4"
+    >
+      <!-- MP3-Player -->
+      <audio controls>
+        <source [src]="audio.file" type="audio/mpeg" />
+        Your browser does not support the audio element.
+      </audio>
+
+      <!-- Button für das Dialogfenster -->
+      <button
+        pButton
+        outlined="true"
+        label="Show Logo"
+        class="mt-2"
+        (click)="showDialog(audio)"
+      ></button>
+    </div>
+  </ng-container>
+</div>
+
+<!-- Dialog für Marken-Logo und Namen -->
+<p-dialog
+  [(visible)]="displayDialog"
+  [modal]="true"
+  [closable]="true"
+  header="Brand Information"
+>
+  <ng-container *ngIf="selectedAudio">
+    <img
+      [src]="selectedAudio.logo"
+      [alt]="selectedAudio.brand + ' Logo'"
+      class="w-full h-auto mb-4"
+    />
+    <h3 class="text-center">{{ selectedAudio.brand }}</h3>
+  </ng-container>
+</p-dialog>

@@ -1,0 +1,22 @@
+<div
+  class="w-full h-full flex flex-col items-center justify-center cursor-pointer px-4"
+  (click)="nextView()"
+>
+  <!-- Ansicht 1-->
+  <ng-container *ngIf="currentViewIndex === 0">
+    <img
+      src="assets/Module3Kriterien/vergleich.jpg"
+      alt="Bild 1"
+      class="w-auto max-h-[500px]"
+    />
+  </ng-container>
+
+  <!-- Ansicht 2-->
+  <ng-container *ngIf="currentViewIndex === 1">
+    <img
+      src="assets/Module3Kriterien/analyse.jpg"
+      alt="Bild 1"
+      class="w-auto max-h-[500px]"
+    />
+  </ng-container>
+</div>

@@ -1,0 +1,27 @@
+<div
+  class="w-full h-full flex flex-col items-center justify-center cursor-pointer px-4"
+  (click)="nextView()"
+>
+  <!-- Ansicht 1 -->
+  <ng-container *ngIf="currentViewIndex === 0">
+    <h1 class="text-3xl font-bold mb-6 text-center">
+      Was ist Corporate Design, Corporate Sound, Corporate Identity?
+    </h1>
+    <p class="text-lg max-w-3xl text-center mb-6">
+      Corporate Design und Corporate Identity sind wesentliche Elemente der
+      Markenbildung. Sie umfassen visuelle und auditive Markenelemente, die das
+      Image und die Wiedererkennbarkeit einer Marke prägen. Corporate Sound ist
+      die logische Ergänzung, um eine Marke auch akustisch erlebbar zu machen
+      und emotionale Bindungen zu schaffen.
+    </p>
+    <p-card>
+      <p-organization-chart [value]="data" />
+    </p-card>
+  </ng-container>
+
+  <ng-container *ngIf="currentViewIndex === 1">
+    <h1 class="text-3xl font-bold mb-6 text-center">
+      Corporate Design und Corporate Sound sind gar nicht so unterschiedlich.
+    </h1>
+  </ng-container>
+</div>

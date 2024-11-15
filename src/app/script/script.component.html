@@ -1,0 +1,116 @@
+<!-- script.component.html -->
+
+<div class="h-screen flex">
+  <!-- Hauptbereich mit dem Unterrichtsskript -->
+  <div class="flex-1 overflow-y-auto p-10 bg-gray-100" #scrollContainer>
+    <h1 class="text-3xl font-bold mb-4">
+      Unterrichtsskript: Corporate Sound – Auditives Design und Hörbare Marken
+    </h1>
+    <p class="text-gray-700 mb-6"><strong>Gesamtdauer:</strong> 3 Stunden</p>
+    <h2 class="text-2xl font-semibold mb-4">Überblick</h2>
+    <p class="mb-16">
+      Der Unterricht ist in vier Hauptmodule unterteilt, die jeweils aus
+      Vorlesungen, interaktiven Aktivitäten und Diskussionsrunden bestehen. Ziel
+      ist es, den Studierenden ein tiefgreifendes Verständnis für die Bedeutung
+      von Corporate Sound im Marketing und der Markenkommunikation zu
+      vermitteln.
+    </p>
+
+    <ng-container *ngFor="let module of LESSON_MODULES">
+      <div
+        class="border-4 p-8 rounded-xl mb-16"
+        [style.borderColor]="module.color"
+      >
+        <h2 class="text-3xl font-semibold mb-4">{{ module.title }}</h2>
+        <p class="text-gray-600 mb-2">{{ module.duration }}</p>
+
+        <ng-container *ngFor="let section of module.sections">
+          <div
+            class="mb-16"
+            [attr.data-section-id]="section.id"
+            #sectionElements
+            [ngClass]="{ 'bg-yellow-50': section.id === visibleSectionId }"
+          >
+            <h3
+              class="text-xl font-medium cursor-pointer"
+              (click)="scrollToSection(section.id)"
+            >
+              {{ section.title }}
+            </h3>
+
+            <p class="text-gray-700 mb-2">{{ section.duration }}</p>
+
+            <div *ngFor="let activity of section.activities">
+              <p *ngIf="activity.script" class="mb-2">
+                <strong>📖 Vorlesetext:</strong>
+                <span class="bg-green-200">{{ activity.script }}</span>
+              </p>
+              <p *ngIf="activity.note" class="mb-4 text-gray-600">
+                <strong>📝 Hinweis:</strong> {{ activity.note }}
+              </p>
+            </div>
+
+            <!-- Button zum Öffnen des Dialogs -->
+            <button
+              pButton
+              label="Vorschau"
+              outlined="true"
+              icon="pi pi-eye"
+              (click)="openSlidePreview(section.id)"
+              styleClass="mt-2"
+            ></button>
+          </div>
+        </ng-container>
+      </div>
+    </ng-container>
+  </div>
+
+  <!-- Sidebar mit Kommentaren -->
+  <aside class="w-1/4 bg-white border-l p-4 overflow-y-auto">
+    <h2 class="text-xl font-semibold mb-4">Kommentare & Hinweise</h2>
+    <ng-container *ngIf="currentComments && currentComments.length > 0">
+      <div *ngFor="let comment of currentComments">
+        <div
+          [ngClass]="{
+            'bg-yellow-100 border-yellow-500': comment.type === 'question',
+            'bg-blue-100 border-blue-500': comment.type === 'note',
+            'bg-green-100 border-green-500': comment.type === 'important',
+            'bg-purple-100 border-purple-500': comment.type === 'discussion',
+            'bg-gray-100 border-gray-500': comment.type === 'übergang'
+          }"
+          class="mb-4 p-2 border-l-4"
+        >
+          <p class="font-bold">
+            <span *ngIf="comment.type === 'question'">❓</span>
+            <span *ngIf="comment.type === 'note'">📝</span>
+            <span *ngIf="comment.type === 'important'">⚠️</span>
+            <span *ngIf="comment.type === 'discussion'">💬</span>
+            <span *ngIf="comment.type === 'übergang'">⬇️</span>
+            {{ comment.type | titlecase }}:
+          </p>
+          <p *ngIf="comment.script">
+            <strong>📖 Vorlesetext:</strong> {{ comment.script }}
+          </p>
+          <p *ngIf="comment.note">
+            <strong>📝 Hinweis:</strong> {{ comment.note }}
+          </p>
+        </div>
+      </div>
+    </ng-container>
+    <ng-container *ngIf="!currentComments || currentComments.length === 0">
+      <p class="text-gray-500">Keine Kommentare für diesen Abschnitt.</p>
+    </ng-container>
+  </aside>
+
+  <!-- Dialog für die Slide-Vorschau -->
+  <p-dialog
+    [(visible)]="displayDialog"
+    [modal]="true"
+    [closable]="true"
+    [style]="{ width: '70vw' }"
+    *ngIf="selectedSlide"
+    [header]="selectedSlide.title"
+  >
+    <ng-container *ngComponentOutlet="selectedSlide.component"></ng-container>
+  </p-dialog>
+</div>

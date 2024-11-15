@@ -1,0 +1,63 @@
+<div
+  class="w-full h-full flex flex-col items-center justify-center px-4"
+  (click)="nextView()"
+>
+  <!-- Ansicht 1 -->
+  <ng-container *ngIf="currentViewIndex === 0">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+      <!-- Linke Seite: Bild -->
+      <div class="flex justify-center">
+        <img
+          src="assets/Module2Elemente/cd.jpg"
+          alt="Visual Design Tools"
+          class="max-w-full h-auto"
+        />
+      </div>
+      <!-- Rechte Seite: Tools für visuelles Corporate Design -->
+      <div>
+        <h2 class="text-2xl font-bold mb-4">Visuelle Corporate Design Tools</h2>
+        <ul class="list-disc pl-5 space-y-2 text-lg">
+          <li>Typografie</li>
+          <li>Farben</li>
+          <li>Formen</li>
+          <li>Logos</li>
+          <li>Bildsprache</li>
+        </ul>
+      </div>
+    </div>
+  </ng-container>
+
+  <ng-container *ngIf="currentViewIndex === 1">
+    <h1 class="text-3xl font-bold mb-6 text-center">
+      Warum ist Corporate Sound noch so unbekannt?
+    </h1>
+  </ng-container>
+
+  <!-- Ansicht 2 -->
+  <ng-container *ngIf="currentViewIndex === 2">
+    <h2 class="text-2xl font-bold mb-4 text-center">Markenanmeldungen</h2>
+    <p-chart
+      type="bar"
+      [data]="registrationData"
+      [options]="registrationOptions"
+      class="max-w-md h-96 flex-1"
+    ></p-chart>
+    <p class="text-center mt-4">
+      Vergleich der Anmeldungen von visuellen Markenlogos (60.000) vs. Sound
+      Logos (ca. 6).
+    </p>
+  </ng-container>
+
+  <!-- Ansicht 3 -->
+  <ng-container *ngIf="currentViewIndex === 3">
+    <h2 class="text-2xl font-bold mt-10 mb-4 text-center">
+      Junger Markt Soundlogos über die Jahre
+    </h2>
+    <p-chart
+      type="line"
+      [data]="growthData"
+      [options]="growthOptions"
+      class="w-full max-w-md"
+    ></p-chart>
+  </ng-container>
+</div>

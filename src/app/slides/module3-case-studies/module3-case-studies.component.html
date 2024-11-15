@@ -1,0 +1,139 @@
+<div
+  class="w-full h-full flex flex-col items-center justify-center cursor-pointer px-4"
+  (click)="nextView()"
+>
+  <!-- Ansicht 1-->
+  <ng-container *ngIf="currentViewIndex === 0">
+    <div class="flex gap-4">
+      <img
+        src="assets/Module3Casestudies/mcdonalds.jpg"
+        alt="Bild 1"
+        class="w-52 h-auto"
+      />
+
+      <div>
+        <h2 class="text-2xl font-bold mb-4">McDonalds</h2>
+        <p class="text-lg">
+          McDonald’s ist der umsatzstärkste Fast-Food-Konzern der Welt. Sie
+          haben immer den Fokus auf ein qualitatives Corporate Sound gelegt.
+          Negativ war nur der häufige radikale Wechsel des Audio Logos und des
+          Jingles. Der Klang der Marke war dadurch nicht eindeutig und konstant
+          was gleichzusetzen ist mit dem wechsel des visuellen Logos. Mcdonalds
+          schmeckt einfach gut - I'm loving it.
+        </p>
+        <button
+          (click)="showDialog()"
+          pButton
+          type="button"
+          icon="pi pi-eye"
+          class="p-button-text"
+        ></button>
+      </div>
+    </div>
+  </ng-container>
+
+  <!-- Ansicht 2-->
+  <ng-container *ngIf="currentViewIndex === 1">
+    <div class="flex gap-4">
+      <img
+        src="assets/Module3Casestudies/bmw.jpg"
+        alt="Bild 1"
+        class="w-auto max-h-[400px]"
+      />
+
+      <div>
+        <h2 class="text-2xl font-bold mb-4">BMW Markenidentität</h2>
+        <p class="text-lg">
+          BMW ist ein deutscher Automobilhersteller, der für seine
+          Premiumfahrzeuge bekannt ist. Der Sound der Marke ist sehr
+          charakteristisch und verkörpert perfekt die Kernaussagen der Brand
+          Identity. Dynamisch und sportlich. Der Sound ist sehr prägnant und
+          passt zur premium Marke.
+        </p>
+        <button
+          (click)="showDialog2()"
+          pButton
+          type="button"
+          icon="pi pi-eye"
+          class="p-button-text"
+        ></button>
+      </div>
+    </div>
+  </ng-container>
+
+  <!-- Ansicht 2-->
+  <ng-container *ngIf="currentViewIndex === 2">
+    <div class="flex gap-4">
+      <img
+        src="assets/Module3Casestudies/audi.jpg"
+        alt="Bild 1"
+        class="w-52 h-auto"
+      />
+
+      <div>
+        <h2 class="text-2xl font-bold mb-4">Audi</h2>
+        <p class="text-lg">
+          Audi ist ein deutscher Automobilhersteller. Der Sound der Marke
+          representiert die Aufregung, den Motoremotional durch einen
+          technischen Herzschlag Sound. Negativ ist die flexible Nutzungs des
+          Audiologos da es keine Melodie hat (z.B Weihnachtsversion). Außerdem
+          ist das Logo in tiefen frequenzen nicht gut hörbar und damit nicht für
+          alle Ausgabemedien geeignet.
+        </p>
+        <button
+          (click)="showDialog3()"
+          pButton
+          type="button"
+          icon="pi pi-eye"
+          class="p-button-text"
+        ></button>
+      </div>
+    </div>
+  </ng-container>
+
+  <!-- Ansicht 2-->
+  <!-- Ansicht 2-->
+  <ng-container *ngIf="currentViewIndex === 3">
+    <div class="flex gap-4">
+      <img
+        src="assets/Module3Casestudies/mercedes.jpg"
+        alt="Bild 1"
+        class="w-52 h-auto"
+      />
+      <div>
+        <h2 class="text-2xl font-bold mb-4">Der Fall Mercedes</h2>
+        <button
+          (click)="showDialog4()"
+          pButton
+          type="button"
+          icon="pi pi-eye"
+          class="p-button-text"
+        ></button>
+      </div>
+    </div>
+  </ng-container>
+</div>
+
+<p-dialog [modal]="true" [(visible)]="visible">
+  <video width="720" controls src="assets/Module3Casestudies/mcdonalds.mp4">
+    Your browser does not support the video tag.
+  </video>
+</p-dialog>
+
+<p-dialog [modal]="true" [(visible)]="visible2">
+  <video width="720" controls src="assets/Module3Casestudies/bmw.mp4">
+    Your browser does not support the video tag.
+  </video>
+</p-dialog>
+
+<p-dialog [modal]="true" [(visible)]="visible3">
+  <video width="720" controls src="assets/Module3Casestudies/audi.mp4">
+    Your browser does not support the video tag.
+  </video>
+</p-dialog>
+
+<p-dialog [modal]="true" [(visible)]="visible4">
+  <video width="720" controls src="assets/Module3Casestudies/mercedes.mp4">
+    Your browser does not support the video tag.
+  </video>
+</p-dialog>

@@ -1,0 +1,151 @@
+<div
+  class="w-full h-full flex flex-col items-center justify-center cursor-pointer"
+  (click)="nextView()"
+>
+  <!-- Ansicht 1: Bilderreihe -->
+  <ng-container *ngIf="currentViewIndex === 0">
+    <div class="flex justify-center space-x-4 px-16">
+      <p-card class="w-1/3">
+        <img
+          src="assets/Module2Psychologie/wein1.jpg"
+          alt="Wein 1"
+          class="w-full max-h-72 object-cover"
+        />
+      </p-card>
+      <p-card class="w-1/3">
+        <img
+          src="assets/Module2Psychologie/wein2.jpg"
+          alt="Wein 2"
+          class="w-full max-h-72 object-cover"
+        />
+      </p-card>
+      <p-card class="w-1/3">
+        <img
+          src="assets/Module2Psychologie/wein3.jpg"
+          alt="Wein 3"
+          class="w-full max-h-72 object-cover"
+        />
+      </p-card>
+    </div>
+  </ng-container>
+
+  <!-- Ansicht 2: Text -->
+  <ng-container *ngIf="currentViewIndex === 1">
+    <div class="mt-6 px-8 max-w-3xl text-center leading-relaxed text-gray-800">
+      <div class="prose max-w-none mx-auto mt-8">
+        <h2 class="text-2xl font-bold text-center mb-6">
+          Einfluss von Musik auf das Kaufverhalten von Wein
+        </h2>
+        <p class="mb-4">
+          Eine Studie von Adrian C. North, David J. Hargreaves und Jennifer
+          McKendrick (1999) untersuchte, wie Hintergrundmusik das Kaufverhalten
+          in einem Weinladen beeinflusst. Die Forscher spielten abwechselnd
+          französische und deutsche Musik und beobachteten die Auswirkungen auf
+          den Weinkauf. Das Ergebnis zeigte, dass an Tagen mit französischer
+          Musik mehr französischer Wein verkauft wurde, während deutsche Musik
+          den Verkauf deutscher Weine erhöhte. Die Musik beeinflusste also
+          unbewusst die Wahl des Weins entsprechend der Nationalität der Musik.
+        </p>
+        <p class="mb-4">
+          Diese Studie verdeutlicht, wie Umgebungsfaktoren wie Musik das
+          Verhalten von Kunden beeinflussen können, ohne dass sie sich dessen
+          bewusst sind. Solche Erkenntnisse sind für Marketingstrategien im
+          Einzelhandel äußerst wertvoll.Klassische Musik verleitet zum Kauf von
+          teureren Weinen und sogar ältere Musik lässt die Kunden zu älterem
+          Wein greifen.
+        </p>
+        <div class="mt-6 text-sm text-gray-600">
+          <strong>Referenz:</strong><br />
+          North, A. C., Hargreaves, D. J., & McKendrick, J. (1999). The
+          influence of in-store music on wine selections.
+          <em>Journal of Applied Psychology</em>, 84(2), 271–276.
+        </div>
+      </div>
+    </div>
+  </ng-container>
+
+  <!-- Ansicht 3: Weitere Inhalte -->
+  <ng-container *ngIf="currentViewIndex === 2">
+    <div class="flex flex-col items-center text-center p-6 space-y-6">
+      <!-- Titel und Beschreibung -->
+      <h1 class="text-3xl font-bold">Was kann Musik erreichen</h1>
+      <p class="text-lg max-w-2xl">
+        Musik besitzt hohes Potenzial, einen Mehrwert für die Marke und eine
+        nachhaltige Wertsteigerung für das Unternehmen aufzubauen
+      </p>
+
+      <div class="flex items-start space-x-6">
+        <!-- Linke Boxen mit Text und Pfeile -->
+        <div class="flex flex-col space-y-4">
+          <div class="flex items-center space-x-4">
+            <div
+              class="px-6 py-4 bg-gray-100 border border-gray-300 rounded shadow"
+            >
+              <p class="font-semibold">UNMITTELBARE WIRKUNG</p>
+            </div>
+            <div class="text-2xl">➡️</div>
+          </div>
+
+          <div class="flex items-center space-x-4">
+            <div
+              class="px-6 py-4 bg-gray-100 border border-gray-300 rounded shadow"
+            >
+              <p class="font-semibold">BEEINFLUSST EMOTIONALE PROZESSE</p>
+            </div>
+            <div class="text-2xl">➡️</div>
+          </div>
+
+          <div class="flex items-center space-x-4">
+            <div
+              class="px-6 py-4 bg-gray-100 border border-gray-300 rounded shadow"
+            >
+              <p class="font-semibold">KRAFT DER VERFÜHRUNG</p>
+            </div>
+            <div class="text-2xl">➡️</div>
+          </div>
+        </div>
+
+        <!-- Gelbe Hauptbox -->
+        <div
+          class="flex flex-col items-center bg-yellow-300 p-6 border border-black rounded"
+        >
+          <p class="font-bold text-xl mb-2">STEIGERUNG DER</p>
+          <p class="font-semibold">EMOTIONALEN AUFLADUNG</p>
+          <p class="font-semibold">+</p>
+          <p class="font-semibold">DIFFERENZIERUNG</p>
+          <p class="font-semibold">+</p>
+          <p class="font-semibold">WIEDERERKENNBARKEIT</p>
+        </div>
+
+        <!-- Rechte Boxen -->
+        <div class="flex flex-col space-y-4">
+          <div class="flex items-center space-x-4">
+            <div class="text-2xl">➡️</div>
+            <div class="text-left">
+              <p class="font-semibold">Markenprofil</p>
+              <ul class="list-disc list-inside">
+                <li>Positionierung</li>
+                <li>Markenwerte</li>
+                <li>Resonanz</li>
+                <li>Kauf-Appeal</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="flex items-center space-x-4">
+            <div class="text-2xl">➡️</div>
+            <div class="text-left">
+              <p class="font-semibold">Media-Effizienz</p>
+              <ul class="list-disc list-inside">
+                <li>Positionierung</li>
+                <li>Markenwerte</li>
+                <li>Resonanz</li>
+                <li>Kauf-Appeal</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</div>

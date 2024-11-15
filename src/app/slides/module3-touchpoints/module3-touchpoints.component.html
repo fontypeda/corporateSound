@@ -1,0 +1,198 @@
+<div
+  class="w-full h-full flex flex-col items-center justify-center cursor-pointer px-4"
+  (click)="nextView()"
+>
+  <!-- Ansicht 1 Visuelle Identität-->
+  <ng-container *ngIf="currentViewIndex === 0">
+    <div class="flex flex-col items-center space-y-6">
+      <!-- Brand, Visuelle Identität, Ist Situation -->
+      <!-- Brand -->
+      <div class="flex flex-col items-center text-center">
+        <span class="text-4xl">🧠</span>
+        <p class="text-lg font-semibold mt-2">Brand</p>
+      </div>
+
+      <!-- Pfeil nach rechts -->
+      <div class="text-3xl">⬇️</div>
+
+      <!-- Visuelle Identität -->
+      <div class="flex flex-col items-center text-center">
+        <span class="text-4xl">👁️</span>
+        <p class="text-lg font-bold mt-2">Visuelle Identität</p>
+      </div>
+
+      <!-- Pfeile nach unten -->
+      <div class="flex space-x-8 mt-4">
+        <div class="text-3xl">⬇️</div>
+      </div>
+
+      <!-- Touchpoints Section -->
+      <div class="flex flex-wrap items-center justify-center space-x-4">
+        <div
+          class="flex items-center justify-center w-24 h-24 bg-gray-100 rounded-full shadow-md text-center"
+        >
+          <p>TV</p>
+        </div>
+        <div
+          class="flex items-center justify-center w-24 h-24 bg-gray-100 rounded-full shadow-md text-center"
+        >
+          <p>Kino</p>
+        </div>
+        <div
+          class="flex items-center justify-center w-24 h-24 bg-gray-100 rounded-full shadow-md text-center"
+        >
+          <p>Internet</p>
+        </div>
+        <div
+          class="flex items-center justify-center w-24 h-24 bg-gray-100 rounded-full shadow-md text-center"
+        >
+          <p>In-Store</p>
+        </div>
+        <div
+          class="flex items-center justify-center w-24 h-24 bg-gray-100 rounded-full shadow-md text-center"
+        >
+          <p>Industriefilm</p>
+        </div>
+        <div
+          class="flex items-center justify-center w-24 h-24 bg-gray-100 rounded-full shadow-md text-center"
+        >
+          <p>Events / Messen</p>
+        </div>
+        <div
+          class="flex items-center justify-center w-24 h-24 bg-gray-100 rounded-full shadow-md text-center"
+        >
+          <p>Brochure</p>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+
+  <!-- Ansicht 1 Akustische Identität -->
+  <ng-container *ngIf="currentViewIndex === 1">
+    <div class="flex flex-col items-center space-y-6">
+      <!-- Brand, Sound Identität, Soll Situation -->
+      <!-- Brand -->
+      <div class="flex flex-col items-center text-center">
+        <span class="text-4xl">🧠</span>
+        <p class="text-lg font-semibold mt-2">Brand</p>
+      </div>
+
+      <!-- Pfeil nach rechts -->
+      <div class="text-3xl">⬇️</div>
+
+      <!-- Sound Identität -->
+      <div class="flex flex-col items-center text-center">
+        <span class="text-4xl">👂</span>
+        <p class="text-lg font-bold mt-2">Sound Identität</p>
+      </div>
+
+      <!-- Pfeile nach unten -->
+      <div class="flex space-x-8 mt-4">
+        <div class="text-3xl">⬇️</div>
+      </div>
+
+      <!-- Touchpoints Section -->
+      <div class="flex flex-wrap items-center justify-center space-x-4">
+        <div
+          class="flex items-center justify-center w-24 h-24 bg-gray-100 rounded-full shadow-md text-center"
+        >
+          <p>TV</p>
+        </div>
+        <div
+          class="flex items-center justify-center w-24 h-24 bg-gray-100 rounded-full shadow-md text-center"
+        >
+          <p>Kino</p>
+        </div>
+        <div
+          class="flex items-center justify-center w-24 h-24 bg-gray-100 rounded-full shadow-md text-center"
+        >
+          <p>Radio</p>
+        </div>
+        <div
+          class="flex items-center justify-center w-24 h-24 bg-gray-100 rounded-full shadow-md text-center"
+        >
+          <p>Internet</p>
+        </div>
+        <div
+          class="flex items-center justify-center w-24 h-24 bg-gray-100 rounded-full shadow-md text-center"
+        >
+          <p>In-Store</p>
+        </div>
+        <div
+          class="flex items-center justify-center w-24 h-24 bg-gray-100 rounded-full shadow-md text-center"
+        >
+          <p>Industriefilm</p>
+        </div>
+        <div
+          class="flex items-center justify-center w-24 h-24 bg-gray-100 rounded-full shadow-md text-center"
+        >
+          <p>Events / Messen</p>
+        </div>
+        <div
+          class="flex items-center justify-center w-24 h-24 bg-gray-100 rounded-full shadow-md text-center"
+        >
+          <p>Mobile Content</p>
+        </div>
+        <div
+          class="flex items-center justify-center w-24 h-24 bg-gray-100 rounded-full shadow-md text-center"
+        >
+          <p>Telefon</p>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+
+  <!-- Ansicht 1 Touchpints -->
+  <ng-container *ngIf="currentViewIndex === 2">
+    <div class="text-center p-4">
+      <h2 class="text-2xl font-bold mb-4">Sound Branding Touch Points</h2>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div class="border border-gray-300 rounded-lg p-4 bg-gray-50">
+          <h3 class="text-lg font-semibold mb-2">Produkt</h3>
+          <p class="text-sm">Produktsound<br />Verpackungssound</p>
+        </div>
+        <div class="border border-gray-300 rounded-lg p-4 bg-gray-50">
+          <h3 class="text-lg font-semibold mb-2">Radio</h3>
+        </div>
+        <div class="border border-gray-300 rounded-lg p-4 bg-gray-50">
+          <h3 class="text-lg font-semibold mb-2">TV</h3>
+        </div>
+        <div class="border border-gray-300 rounded-lg p-4 bg-gray-50">
+          <h3 class="text-lg font-semibold mb-2">Kino</h3>
+        </div>
+        <div class="border border-gray-300 rounded-lg p-4 bg-gray-50">
+          <h3 class="text-lg font-semibold mb-2">Messe</h3>
+        </div>
+        <div class="border border-gray-300 rounded-lg p-4 bg-gray-50">
+          <h3 class="text-lg font-semibold mb-2">Event</h3>
+        </div>
+        <div class="border border-gray-300 rounded-lg p-4 bg-gray-50">
+          <h3 class="text-lg font-semibold mb-2">Internet</h3>
+          <p class="text-sm">Website<br />Werbebanner</p>
+        </div>
+        <div class="border border-gray-300 rounded-lg p-4 bg-gray-50">
+          <h3 class="text-lg font-semibold mb-2">Telefon</h3>
+          <p class="text-sm">Klingelton<br />SMS-Ton</p>
+        </div>
+        <div class="border border-gray-300 rounded-lg p-4 bg-gray-50">
+          <h3 class="text-lg font-semibold mb-2">Point of Sale</h3>
+        </div>
+        <div class="border border-gray-300 rounded-lg p-4 bg-gray-50">
+          <h3 class="text-lg font-semibold mb-2">Unternehmensgebäude</h3>
+          <p class="text-sm">
+            Raumakustik<br />Fahrstuhlmusik<br />Eingangs-/Wartebereich
+          </p>
+        </div>
+        <div class="border border-gray-300 rounded-lg p-4 bg-gray-50">
+          <h3 class="text-lg font-semibold mb-2">Unternehmens-Computer</h3>
+          <p class="text-sm">Startup Sound</p>
+        </div>
+        <div class="border border-gray-300 rounded-lg p-4 bg-gray-50">
+          <h3 class="text-lg font-semibold mb-2">
+            Unternehmens-Präsentationen
+          </h3>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</div>

@@ -1,0 +1,26 @@
+<div class="mx-auto max-h-[300px]">
+  <div class="flex justify-center flex-col">
+    <h1
+      (click)="toggleImages()"
+      class="text-center text-2xl font-bold cursor-pointer hover:text-primary-500"
+    >
+      Was ist das älteste Soundlogo?
+    </h1>
+    <!-- MP3-Player -->
+    <div class="flex justify-center">
+      <audio controls>
+        <source src="assets/audiologos/glocke.mp3" type="audio/mpeg" />
+        Your browser does not support the audio element.
+      </audio>
+    </div>
+  </div>
+
+  <div *ngIf="showImages" class="flex justify-center mt-4 space-x-4 px-32">
+    <p-card class="w-1/2">
+      <img src="assets/Module1Bedeutung/bell.jpg" alt="Bild 1" class="w-full" />
+    </p-card>
+    <p-card class="w-1/2">
+      <img src="assets/Module1Bedeutung/drum.jpg" alt="Bild 2" class="w-full" />
+    </p-card>
+  </div>
+</div>
